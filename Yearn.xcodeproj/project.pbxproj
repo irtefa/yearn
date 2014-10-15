@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13297FF019EB576C00AEDBAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13297FEF19EB576C00AEDBAE /* Main.storyboard */; };
+		1392FDBD19D2A4A100CDABBF /* RecommendationCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1392FDBC19D2A4A100CDABBF /* RecommendationCardViewController.swift */; };
+		13B9AB5A19DCFBF400D88689 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B9AB5919DCFBF400D88689 /* CollectionViewCell.swift */; };
 		13E32FFE19D25E450059BC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E32FFD19D25E450059BC71 /* AppDelegate.swift */; };
 		13E3300119D25E450059BC71 /* Yearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13E32FFF19D25E450059BC71 /* Yearn.xcdatamodeld */; };
-		13E3300319D25E450059BC71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3300219D25E450059BC71 /* ViewController.swift */; };
-		13E3300619D25E450059BC71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E3300419D25E450059BC71 /* Main.storyboard */; };
+		13E3300319D25E450059BC71 /* HowFarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3300219D25E450059BC71 /* HowFarViewController.swift */; };
 		13E3300819D25E450059BC71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E3300719D25E450059BC71 /* Images.xcassets */; };
 		13E3300B19D25E450059BC71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13E3300919D25E450059BC71 /* LaunchScreen.xib */; };
 		13E3301719D25E450059BC71 /* YearnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3301619D25E450059BC71 /* YearnTests.swift */; };
+		13EE83A419E60C410067FA7A /* CuisinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EE83A319E60C410067FA7A /* CuisinesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +30,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13297FEF19EB576C00AEDBAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		1392FDBC19D2A4A100CDABBF /* RecommendationCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationCardViewController.swift; sourceTree = "<group>"; };
+		13B9AB5919DCFBF400D88689 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		13E32FF819D25E450059BC71 /* Yearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E32FFC19D25E450059BC71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13E32FFD19D25E450059BC71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13E3300019D25E450059BC71 /* Yearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Yearn.xcdatamodel; sourceTree = "<group>"; };
-		13E3300219D25E450059BC71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		13E3300519D25E450059BC71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13E3300219D25E450059BC71 /* HowFarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowFarViewController.swift; sourceTree = "<group>"; };
 		13E3300719D25E450059BC71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13E3300A19D25E450059BC71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13E3301019D25E450059BC71 /* YearnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YearnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E3301519D25E450059BC71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13E3301619D25E450059BC71 /* YearnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearnTests.swift; sourceTree = "<group>"; };
+		13EE83A319E60C410067FA7A /* CuisinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisinesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +85,12 @@
 		13E32FFA19D25E450059BC71 /* Yearn */ = {
 			isa = PBXGroup;
 			children = (
+				13297FEF19EB576C00AEDBAE /* Main.storyboard */,
 				13E32FFD19D25E450059BC71 /* AppDelegate.swift */,
-				13E3300219D25E450059BC71 /* ViewController.swift */,
-				13E3300419D25E450059BC71 /* Main.storyboard */,
+				13E3300219D25E450059BC71 /* HowFarViewController.swift */,
+				1392FDBC19D2A4A100CDABBF /* RecommendationCardViewController.swift */,
+				13B9AB5919DCFBF400D88689 /* CollectionViewCell.swift */,
+				13EE83A319E60C410067FA7A /* CuisinesViewController.swift */,
 				13E3300719D25E450059BC71 /* Images.xcassets */,
 				13E3300919D25E450059BC71 /* LaunchScreen.xib */,
 				13E32FFF19D25E450059BC71 /* Yearn.xcdatamodeld */,
@@ -195,7 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E3300619D25E450059BC71 /* Main.storyboard in Resources */,
+				13297FF019EB576C00AEDBAE /* Main.storyboard in Resources */,
 				13E3300B19D25E450059BC71 /* LaunchScreen.xib in Resources */,
 				13E3300819D25E450059BC71 /* Images.xcassets in Resources */,
 			);
@@ -215,7 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E3300319D25E450059BC71 /* ViewController.swift in Sources */,
+				1392FDBD19D2A4A100CDABBF /* RecommendationCardViewController.swift in Sources */,
+				13E3300319D25E450059BC71 /* HowFarViewController.swift in Sources */,
+				13B9AB5A19DCFBF400D88689 /* CollectionViewCell.swift in Sources */,
+				13EE83A419E60C410067FA7A /* CuisinesViewController.swift in Sources */,
 				13E32FFE19D25E450059BC71 /* AppDelegate.swift in Sources */,
 				13E3300119D25E450059BC71 /* Yearn.xcdatamodeld in Sources */,
 			);
@@ -240,14 +252,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		13E3300419D25E450059BC71 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13E3300519D25E450059BC71 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		13E3300919D25E450059BC71 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -409,6 +413,7 @@
 				13E3301C19D25E450059BC71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		13E3301D19D25E450059BC71 /* Build configuration list for PBXNativeTarget "YearnTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				13E3301F19D25E450059BC71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

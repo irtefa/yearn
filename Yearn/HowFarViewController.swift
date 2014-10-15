@@ -28,7 +28,7 @@ class HowFarViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier != "settings") {
-            let cuisinesViewController = segue.destinationViewController as CuisinesViewController
+            let cuisinesViewController = segue.destinationViewController as CuisinesTableViewController
 
             if (segue.identifier == "walkSegueIdentifier") {
                 cuisinesViewController.modeOfTransportation = "walk"

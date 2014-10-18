@@ -206,7 +206,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="6UJ-65-CcY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vTn-RZ-ulm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vTn-RZ-ulm">
                                 <rect key="frame" x="0.0" y="171" width="320" height="397"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -221,10 +221,6 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you in the mood for?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSZ-r0-Vzp">
                                 <rect key="frame" x="29" y="79" width="275" height="66"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="66" id="BBT-qb-tQ3"/>
-                                    <constraint firstAttribute="width" constant="275" id="eh2-as-iTC"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
@@ -232,11 +228,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RSZ-r0-Vzp" firstAttribute="trailing" secondItem="jA4-vC-6vD" secondAttribute="trailingMargin" id="3zT-6b-zYx"/>
+                            <constraint firstItem="RSZ-r0-Vzp" firstAttribute="top" secondItem="rOx-YR-qRM" secondAttribute="bottom" constant="15" id="5ri-sk-m3S"/>
                             <constraint firstAttribute="centerY" secondItem="vTn-RZ-ulm" secondAttribute="centerY" constant="-85.5" id="9Ih-Kw-6ZF"/>
-                            <constraint firstItem="RSZ-r0-Vzp" firstAttribute="leading" secondItem="jA4-vC-6vD" secondAttribute="leadingMargin" constant="13" id="DkN-0G-GwP"/>
-                            <constraint firstItem="vTn-RZ-ulm" firstAttribute="top" secondItem="RSZ-r0-Vzp" secondAttribute="bottom" constant="26" id="Lzu-Bb-Cp7"/>
+                            <constraint firstItem="vTn-RZ-ulm" firstAttribute="top" secondItem="RSZ-r0-Vzp" secondAttribute="bottom" constant="26" id="Ky5-Dr-I1i"/>
                             <constraint firstItem="fRn-NO-fIp" firstAttribute="top" secondItem="6UJ-65-CcY" secondAttribute="bottom" id="OGY-JW-MHd"/>
+                            <constraint firstItem="RSZ-r0-Vzp" firstAttribute="trailing" secondItem="jA4-vC-6vD" secondAttribute="trailingMargin" id="PbQ-uF-1tL"/>
+                            <constraint firstItem="RSZ-r0-Vzp" firstAttribute="leading" secondItem="jA4-vC-6vD" secondAttribute="leadingMargin" constant="13" id="gcn-Zj-pEB"/>
                             <constraint firstItem="6UJ-65-CcY" firstAttribute="top" secondItem="rOx-YR-qRM" secondAttribute="bottom" constant="-64" id="pqo-dc-uPd"/>
                             <constraint firstAttribute="centerX" secondItem="6UJ-65-CcY" secondAttribute="centerX" id="qLb-9f-MPe"/>
                             <constraint firstAttribute="centerX" secondItem="vTn-RZ-ulm" secondAttribute="centerX" id="uFC-ig-mra"/>

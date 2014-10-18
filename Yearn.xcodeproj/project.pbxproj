@@ -86,8 +86,8 @@
 				13297FEF19EB576C00AEDBAE /* Main.storyboard */,
 				13E32FFD19D25E450059BC71 /* AppDelegate.swift */,
 				13E3300219D25E450059BC71 /* HowFarViewController.swift */,
-				1392FDBC19D2A4A100CDABBF /* RecommendationCardViewController.swift */,
 				1395434819EE477B00AD2076 /* CuisinesTableViewController.swift */,
+				1392FDBC19D2A4A100CDABBF /* RecommendationCardViewController.swift */,
 				13E3300719D25E450059BC71 /* Images.xcassets */,
 				13E3300919D25E450059BC71 /* LaunchScreen.xib */,
 				13E32FFF19D25E450059BC71 /* Yearn.xcdatamodeld */,
@@ -170,6 +170,7 @@
 				TargetAttributes = {
 					13E32FF719D25E450059BC71 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = E36UYF38DG;
 					};
 					13E3300F19D25E450059BC71 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -340,6 +341,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Yearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Yearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,16 +11,51 @@ import UIKit
 class CuisinesTableViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
 
-    let testCuisines = ["Indian", "American", "Asian", "Burmese", "Greek", "Israeli"]
+    var testCuisines = [] as NSArray
     
-    var modeOfTransportation = "default"
+    var medium = "default"
     var cuisineSelected = "American"
+    var lon = 0.0
+    var lat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.backgroundColor = UIColor.clearColor()
         // Do any additional setup after loading the view.
+        println(lat)
+        println(lon)
+        // Do any additional setup after loading the view, typically from a nib.
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:5000/cuisines/"), cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        var response: NSURLResponse?
+        var error: NSError?
+        
+        // Create some JSON data and configure the request
+        let jsonString = "json=[{\"medium\":\"\(self.medium)\",\"lat\":\"\(self.lat)\",\"lon\":\"\(self.lon)\"}]"
+        request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        request.HTTPMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        let queue:NSOperationQueue = NSOperationQueue()
+        
+        // Make Asynchronous request
+        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var err: NSError
+            
+            if error == nil {
+                if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.testCuisines = (jsonResult["cuisines"] as NSArray)
+                        println(self.testCuisines)
+                        self.tableView.reloadData()
+                    });
+                } else {
+                    println(error)
+                }
+            } else {
+                println("error")
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +74,7 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
     }
     */
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        println(self.testCuisines.count)
         return self.testCuisines.count;
     }
     
@@ -46,7 +82,7 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
 
         // Cell Style and Text
-        cell.textLabel?.text = self.testCuisines[indexPath.row]
+        cell.textLabel?.text = (self.testCuisines[indexPath.row]) as NSString
         cell.textLabel?.font = UIFont(name:"HelveticaNeue-Thin", size:18)
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.clearColor()
@@ -60,7 +96,7 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         println("You selected \(self.testCuisines[indexPath.row])!")
-        self.cuisineSelected = self.testCuisines[indexPath.row]
+        self.cuisineSelected = self.testCuisines[indexPath.row] as NSString
         self.performSegueWithIdentifier("recommendationSegue", sender: self)
     }
 
@@ -70,6 +106,9 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
             let recommendationCardViewController = segue.destinationViewController as RecommendationCardViewController
             
             recommendationCardViewController.cuisine = self.cuisineSelected
+            recommendationCardViewController.medium = self.medium
+            recommendationCardViewController.lat = self.lat
+            recommendationCardViewController.lon = self.lon
         }
     }
     

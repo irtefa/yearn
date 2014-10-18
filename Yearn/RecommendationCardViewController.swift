@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 class RecommendationCardViewController: UIViewController {
     var cuisine = "none"
-
+    var medium = "default"
+    var lat = 41.8959273
+    var lon = -87.784242
+    
     @IBOutlet var restaurantNameLabel: UILabel!
     @IBOutlet var taglineLabel: UILabel!
     override func viewDidLoad() {
@@ -20,23 +23,31 @@ class RecommendationCardViewController: UIViewController {
         var response: NSURLResponse?
         var error: NSError?
         
-        // create some JSON data and configure the request
-        let jsonString = "json=[{\"cuisine\":\"American\",\"medium\":\"walk\"}]"
+        // Create some JSON data and configure the request
+        let jsonString = "json=[{\"cuisine\":\"\(self.cuisine)\",\"medium\":\"\(self.medium)\",\"lat\":\"\(self.lat)\",\"lon\":\"\(self.lon)\"}]"
         request.HTTPBody = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
         request.HTTPMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         let queue:NSOperationQueue = NSOperationQueue()
 
+        // Make Asynchronous request
         NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var err: NSError
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
 
-            dispatch_async(dispatch_get_main_queue(), {
-                self.taglineLabel.text = (jsonResult["tagline"] as String)
-                self.restaurantNameLabel.text = (jsonResult["name"] as String)
-            });
-
+            if error == nil {
+                if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary {
+                    dispatch_async(dispatch_get_main_queue(), {
+//                      self.taglineLabel.text = (jsonResult["tagline"] as String)
+                        self.taglineLabel.text = "Irtefa"
+                        self.restaurantNameLabel.text = (jsonResult["name"] as String)
+                    });
+                } else {
+                    println(error)
+                }
+            } else {
+                println("error")
+            }
         })
     }
 

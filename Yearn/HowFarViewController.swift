@@ -49,8 +49,10 @@ class HowFarViewController: UIViewController, CLLocationManagerDelegate {
 
             if (segue.identifier == "walkSegueIdentifier") {
                 cuisinesViewController.medium = "walk"
+                cuisinesViewController.distanceSuggestion = "Choose Drive to see more places!"
             } else if (segue.identifier == "driveSegueIdentifier") {
                 cuisinesViewController.medium = "drive"
+                cuisinesViewController.distanceSuggestion = ""
             }
             
             cuisinesViewController.lat = self.lat
@@ -74,9 +76,7 @@ class HowFarViewController: UIViewController, CLLocationManagerDelegate {
             var locationObj = locationArray?.lastObject as CLLocation
             var coord = locationObj.coordinate
             
-            println(coord.latitude)
             self.lat = coord.latitude
-            println(coord.longitude)
             self.lon = coord.longitude
         }
     }

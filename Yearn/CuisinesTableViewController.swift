@@ -10,9 +10,10 @@ import UIKit
 
 class CuisinesTableViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
-
-    var testCuisines = [] as NSArray
+    @IBOutlet var distanceSuggestionLabel: UILabel!
     
+    var testCuisines = [] as NSArray
+    var distanceSuggestion = ""
     var medium = "default"
     var cuisineSelected = "American"
     var lon = 0.0
@@ -23,8 +24,6 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.backgroundColor = UIColor.clearColor()
         // Do any additional setup after loading the view.
-        println(lat)
-        println(lon)
         // Do any additional setup after loading the view, typically from a nib.
         var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:5000/cuisines/"), cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         var response: NSURLResponse?
@@ -46,7 +45,7 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
                 if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary {
                     dispatch_async(dispatch_get_main_queue(), {
                         self.testCuisines = (jsonResult["cuisines"] as NSArray)
-                        println(self.testCuisines)
+                        self.distanceSuggestionLabel.text = self.distanceSuggestion
                         self.tableView.reloadData()
                     });
                 } else {
@@ -74,7 +73,6 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
     }
     */
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        println(self.testCuisines.count)
         return self.testCuisines.count;
     }
     
@@ -95,7 +93,6 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        println("You selected \(self.testCuisines[indexPath.row])!")
         self.cuisineSelected = self.testCuisines[indexPath.row] as NSString
         self.performSegueWithIdentifier("recommendationSegue", sender: self)
     }

@@ -8,10 +8,13 @@
 import Foundation
 import UIKit
 class RecommendationCardViewController: UIViewController {
+    var restaurantName = ""
     var cuisine = "none"
     var medium = "default"
     var lat = 41.8959273
     var lon = -87.784242
+    var dlat = ""
+    var dlon = ""
     
     @IBOutlet var restaurantNameLabel: UILabel!
     @IBOutlet var taglineLabel: UILabel!
@@ -39,8 +42,17 @@ class RecommendationCardViewController: UIViewController {
                 if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary {
                     dispatch_async(dispatch_get_main_queue(), {
 //                      self.taglineLabel.text = (jsonResult["tagline"] as String)
-                        self.taglineLabel.text = "Irtefa"
+                        self.taglineLabel.text = ""
+                        self.restaurantName = (jsonResult["name"] as String)
                         self.restaurantNameLabel.text = (jsonResult["name"] as String)
+
+                        // Find location from result
+                        var pin = jsonResult["pin"] as NSDictionary
+                        var location = pin as NSDictionary
+                        var geolocation = location["location"] as NSDictionary
+
+                        self.dlon = NSString(format: "%f", geolocation["lon"] as Double)
+                        self.dlat = NSString(format: "%f", geolocation["lat"] as Double)
                     });
                 } else {
                     println(error)
@@ -58,9 +70,10 @@ class RecommendationCardViewController: UIViewController {
 
     @IBAction func pressedCallButton(sender: AnyObject) {
         println("pressed call button")
-        var uuid = NSUUID.UUID().UUIDString
-        println(uuid)
+        var phoneNumber = "217-974-0815"
+        UIApplication.sharedApplication().openURL(NSURL.URLWithString(phoneNumber));
     }
+    
     @IBAction func pressedMapsButton(sender: UIButton) {
         // Add Event
         var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:5000/add-event/"), cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
@@ -81,6 +94,19 @@ class RecommendationCardViewController: UIViewController {
 
         // Button pressed event
         println("Pressed Tick Button")
-        UIApplication.sharedApplication().openURL(NSURL.URLWithString("http://maps.google.com/maps?q=india"))
+        var testURL = NSURL.URLWithString("comgooglemaps-x-callback://")
+        if (UIApplication.sharedApplication().canOpenURL(testURL)) {
+            var directionsRequest = "comgooglemaps-x-callback://" +
+            "daddr=\(self.dlat),\(self.dlon)" +
+            "&saddr=\(self.lat),\(self.lon)" +
+            "&x-success=sourceapp://?resume=true&x-source=AirApp";
+            var directionsURL = NSURL.URLWithString(directionsRequest);
+            UIApplication.sharedApplication().openURL(directionsURL);
+        } else {
+            println("Can't use comgooglemaps-x-callback:// on this device.");
+            UIApplication.sharedApplication().openURL(NSURL.URLWithString("http://maps.google.com/maps?daddr=\(self.dlat),\(self.dlon)" +
+                "&saddr=\(self.lat),\(self.lon)" +
+                "&x-success=sourceapp://?resume=true&x-source=AirApp"))
+        }
     }
 }

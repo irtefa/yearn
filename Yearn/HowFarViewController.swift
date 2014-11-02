@@ -22,29 +22,28 @@ class HowFarViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         self.navigationController?.title = "Yearn"
         
-        // Set View Related Properties
-        self.howFarPromptLabel.adjustsFontSizeToFitWidth = true
-        self.howFarPromptLabel.textColor = UIColor.whiteColor()
-        self.howFarPromptLabel.font = UIFont(name:"HelveticaNeue-Thin", size:100)
-        self.howFarPromptLabel.textAlignment = .Left
-     
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.requestAlwaysAuthorization()
+        
+        var localNotification:UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Testing notifications on iOS8"
+        localNotification.alertBody = "Woww it works!!"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
-    @IBOutlet var howFarPromptLabel: UILabel!
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier != "settings") {
+        if segue.identifier != "notification" && segue.identifier != "settings" {
+            
             let cuisinesViewController = segue.destinationViewController as CuisinesTableViewController
 
             if (segue.identifier == "walkSegueIdentifier") {
@@ -54,7 +53,7 @@ class HowFarViewController: UIViewController, CLLocationManagerDelegate {
                 cuisinesViewController.medium = "drive"
                 cuisinesViewController.distanceSuggestion = ""
             }
-            
+            println(segue.identifier)
             cuisinesViewController.lat = self.lat
             cuisinesViewController.lon = self.lon
         }
@@ -104,6 +103,11 @@ class HowFarViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 NSLog("Denied access: \(locationStatus)")
             }
+    }
+    
+    func application(application: UIApplication!, didReceiveLocalNotification notification: UILocalNotification!) {
+        // do your jobs here
+        println("did receive notification")
     }
 }
 

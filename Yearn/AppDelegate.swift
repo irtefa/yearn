@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
     Parse.setApplicationId("AYzdM6fDq9diXSr7rXfYZ04wPtAfL1IDIUkmjB0f",clientKey: "F0fEit4RAJAV4m9T2vQvjbvxjfZB5FXYzd8gVKGP")
+
+    application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound|UIUserNotificationType.Alert|UIUserNotificationType.Badge, categories: nil))
         return true
     }
 
@@ -107,6 +109,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 

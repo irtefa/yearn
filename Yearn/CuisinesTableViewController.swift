@@ -86,7 +86,7 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
         cell.backgroundColor = UIColor.clearColor()
         
         var bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.redColor()
+        bgColorView.backgroundColor = UIColor.clearColor()
         cell.selectedBackgroundView = bgColorView
 
         return cell
@@ -98,7 +98,7 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier != "settings") {
+        if (segue.identifier != "settings" && segue.identifier != "notification") {
             
             let recommendationCardViewController = segue.destinationViewController as RecommendationCardViewController
             

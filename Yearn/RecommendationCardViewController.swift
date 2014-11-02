@@ -20,9 +20,13 @@ class RecommendationCardViewController: UIViewController {
     @IBOutlet var taglineLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var currentUser = PFUser.currentUser()
+        
+        if (currentUser != nil) {
+            println(currentUser)
+        }
         // Do any additional setup after loading the view, typically from a nib.
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:5000/recommendation/"), cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://10.0.0.3:5000/recommendation/")!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         var response: NSURLResponse?
         var error: NSError?
         
@@ -70,13 +74,15 @@ class RecommendationCardViewController: UIViewController {
 
     @IBAction func pressedCallButton(sender: AnyObject) {
         println("pressed call button")
-        var phoneNumber = "217-974-0815"
-        UIApplication.sharedApplication().openURL(NSURL.URLWithString(phoneNumber));
+        var phoneNumber = "tel://2179740815"
+        let phoneUrl:NSURL = NSURL(string: phoneNumber)!
+//        UIApplication.sharedApplication().openURL(NSURL(string: phoneNumber)!);
+        UIApplication.sharedApplication().openURL(phoneUrl)
     }
     
     @IBAction func pressedMapsButton(sender: UIButton) {
         // Add Event
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:5000/add-event/"), cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://10.0.0.3:5000/add-event/")!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         var response: NSURLResponse?
         var error: NSError?
         
@@ -94,19 +100,19 @@ class RecommendationCardViewController: UIViewController {
 
         // Button pressed event
         println("Pressed Tick Button")
-        var testURL = NSURL.URLWithString("comgooglemaps-x-callback://")
+        var testURL = NSURL(string: "comgooglemaps-x-callback://")!
         if (UIApplication.sharedApplication().canOpenURL(testURL)) {
             var directionsRequest = "comgooglemaps-x-callback://" +
             "daddr=\(self.dlat),\(self.dlon)" +
             "&saddr=\(self.lat),\(self.lon)" +
             "&x-success=sourceapp://?resume=true&x-source=AirApp";
-            var directionsURL = NSURL.URLWithString(directionsRequest);
+            var directionsURL = NSURL(string: directionsRequest)!;
             UIApplication.sharedApplication().openURL(directionsURL);
         } else {
             println("Can't use comgooglemaps-x-callback:// on this device.");
-            UIApplication.sharedApplication().openURL(NSURL.URLWithString("http://maps.google.com/maps?daddr=\(self.dlat),\(self.dlon)" +
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://maps.google.com/maps?daddr=\(self.dlat),\(self.dlon)" +
                 "&saddr=\(self.lat),\(self.lon)" +
-                "&x-success=sourceapp://?resume=true&x-source=AirApp"))
+                "&x-success=sourceapp://?resume=true&x-source=AirApp")!)
         }
     }
 }

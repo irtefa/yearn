@@ -25,7 +25,7 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
         self.tableView.backgroundColor = UIColor.clearColor()
         // Do any additional setup after loading the view.
         // Do any additional setup after loading the view, typically from a nib.
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:5000/cuisines/"), cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://10.0.0.3:5000/cuisines/")!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         var response: NSURLResponse?
         var error: NSError?
         
@@ -80,9 +80,9 @@ class CuisinesTableViewController: UIViewController, UITableViewDelegate {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
 
         // Cell Style and Text
-        cell.textLabel?.text = (self.testCuisines[indexPath.row]) as NSString
-        cell.textLabel?.font = UIFont(name:"HelveticaNeue-Thin", size:18)
-        cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel.text = (self.testCuisines[indexPath.row]) as NSString
+        cell.textLabel.font = UIFont(name:"HelveticaNeue-Thin", size:18)
+        cell.textLabel.textColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.clearColor()
         
         var bgColorView = UIView()

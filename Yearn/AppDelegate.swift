@@ -13,8 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
     Parse.setApplicationId("AYzdM6fDq9diXSr7rXfYZ04wPtAfL1IDIUkmjB0f",clientKey: "F0fEit4RAJAV4m9T2vQvjbvxjfZB5FXYzd8gVKGP")
@@ -45,6 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        println("Received!!!")
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let fromNotificationViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FromNotificationViewController") as FromNotificationViewController
+        
+        self.window?.rootViewController = fromNotificationViewController;
+        self.window?.makeKeyAndVisible()
+        
     }
 
     // MARK: - Core Data stack

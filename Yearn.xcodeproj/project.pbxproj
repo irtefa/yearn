@@ -24,6 +24,7 @@
 		1323935D1A061DF700F1A0EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1323935C1A061DF600F1A0EB /* Main.storyboard */; };
 		1392FDBD19D2A4A100CDABBF /* RecommendationCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1392FDBC19D2A4A100CDABBF /* RecommendationCardViewController.swift */; };
 		1395434919EE477B00AD2076 /* CuisinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1395434819EE477B00AD2076 /* CuisinesTableViewController.swift */; };
+		13CCB1A61A16EB6700AC857B /* FromNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CCB1A51A16EB6700AC857B /* FromNotificationViewController.swift */; };
 		13E32FFE19D25E450059BC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E32FFD19D25E450059BC71 /* AppDelegate.swift */; };
 		13E3300119D25E450059BC71 /* Yearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13E32FFF19D25E450059BC71 /* Yearn.xcdatamodeld */; };
 		13E3300319D25E450059BC71 /* HowFarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3300219D25E450059BC71 /* HowFarViewController.swift */; };
@@ -61,6 +62,7 @@
 		1323935C1A061DF600F1A0EB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		1392FDBC19D2A4A100CDABBF /* RecommendationCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationCardViewController.swift; sourceTree = "<group>"; };
 		1395434819EE477B00AD2076 /* CuisinesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisinesTableViewController.swift; sourceTree = "<group>"; };
+		13CCB1A51A16EB6700AC857B /* FromNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromNotificationViewController.swift; sourceTree = "<group>"; };
 		13E32FF819D25E450059BC71 /* Yearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E32FFC19D25E450059BC71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13E32FFD19D25E450059BC71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				1323935C1A061DF600F1A0EB /* Main.storyboard */,
+				13CCB1A51A16EB6700AC857B /* FromNotificationViewController.swift */,
 				13E32FFD19D25E450059BC71 /* AppDelegate.swift */,
 				13E3300219D25E450059BC71 /* HowFarViewController.swift */,
 				1395434819EE477B00AD2076 /* CuisinesTableViewController.swift */,
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1392FDBD19D2A4A100CDABBF /* RecommendationCardViewController.swift in Sources */,
+				13CCB1A61A16EB6700AC857B /* FromNotificationViewController.swift in Sources */,
 				13E3300319D25E450059BC71 /* HowFarViewController.swift in Sources */,
 				13E32FFE19D25E450059BC71 /* AppDelegate.swift in Sources */,
 				13E3300119D25E450059BC71 /* Yearn.xcdatamodeld in Sources */,

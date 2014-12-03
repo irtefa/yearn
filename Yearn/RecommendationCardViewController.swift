@@ -75,7 +75,7 @@ class RecommendationCardViewController: UIViewController {
     @IBAction func pressedCallButton(sender: AnyObject) {
         println("pressed call button")
         var phoneNumber = "tel://2179740815"
-        let phoneUrl:NSURL = NSURL(string: phoneNumber)!
+        let phoneUrl:NSURL = NSURL(string: phoneNumber)!    
 //        UIApplication.sharedApplication().openURL(NSURL(string: phoneNumber)!);
         UIApplication.sharedApplication().openURL(phoneUrl)
     }

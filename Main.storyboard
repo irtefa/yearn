@@ -129,7 +129,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="385"/>
+            <point key="canvasLocation" x="580" y="385"/>
+        </scene>
+        <!--From Notification View Controller-->
+        <scene sceneID="FqF-cC-tNm">
+            <objects>
+                <viewController storyboardIdentifier="FromNotificationViewController" id="pXU-Fi-Vrn" customClass="FromNotificationViewController" customModule="Yearn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tkw-F2-Zn6"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZQ2-Zy-TdA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7xM-yF-mH7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUE-YA-DBr">
+                                <rect key="frame" x="139" y="273" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="cUE-YA-DBr" secondAttribute="centerY" constant="0.5" id="P44-et-Ivw"/>
+                            <constraint firstAttribute="centerX" secondItem="cUE-YA-DBr" secondAttribute="centerX" id="zun-r5-Tb1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WkX-OQ-nfP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12v-WS-pAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882" y="1096"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="nBT-0B-xla">
@@ -156,6 +187,9 @@
                                 <rect key="frame" x="46" y="130" width="228" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="v3V-3L-nQ3" id="WqY-e1-q2A"/>
+                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MYx-Ws-fre">
                                 <rect key="frame" x="225" y="251" width="51" height="31"/>
@@ -238,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEc-dg-d53" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="1055"/>
+            <point key="canvasLocation" x="1402" y="1096"/>
         </scene>
         <!--Cuisines Table View Controller-->
         <scene sceneID="x7I-6y-tkL">
@@ -282,7 +316,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RSZ-r0-Vzp" firstAttribute="leading" secondItem="vTn-RZ-ulm" secondAttribute="leading" id="0Ra-NP-6Kz"/>
                             <constraint firstItem="fRn-NO-fIp" firstAttribute="top" secondItem="Uxw-xr-iZe" secondAttribute="bottom" constant="25" id="5it-y5-QAx"/>
                             <constraint firstItem="6UJ-65-CcY" firstAttribute="leading" secondItem="jA4-vC-6vD" secondAttribute="leading" id="6Rx-jN-wS3"/>
                             <constraint firstItem="6UJ-65-CcY" firstAttribute="bottom" secondItem="fRn-NO-fIp" secondAttribute="top" id="8kM-oJ-DAd"/>
@@ -294,9 +327,10 @@
                             <constraint firstItem="6UJ-65-CcY" firstAttribute="top" secondItem="jA4-vC-6vD" secondAttribute="top" id="fMi-Wi-iVs"/>
                             <constraint firstItem="vTn-RZ-ulm" firstAttribute="top" secondItem="jA4-vC-6vD" secondAttribute="top" constant="171" id="gIm-ka-2fI"/>
                             <constraint firstItem="RSZ-r0-Vzp" firstAttribute="trailing" secondItem="jA4-vC-6vD" secondAttribute="trailingMargin" id="gKA-Pv-LLy"/>
-                            <constraint firstItem="vTn-RZ-ulm" firstAttribute="trailing" secondItem="Uxw-xr-iZe" secondAttribute="trailing" id="jNW-oj-cnU"/>
+                            <constraint firstItem="vTn-RZ-ulm" firstAttribute="leading" secondItem="jA4-vC-6vD" secondAttribute="leadingMargin" constant="13" id="lOB-9j-nRd"/>
                             <constraint firstItem="RSZ-r0-Vzp" firstAttribute="leading" secondItem="jA4-vC-6vD" secondAttribute="leadingMargin" constant="13" id="ldw-eU-5Np"/>
                             <constraint firstItem="6UJ-65-CcY" firstAttribute="centerX" secondItem="vTn-RZ-ulm" secondAttribute="centerX" id="ouA-bE-t4D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vTn-RZ-ulm" secondAttribute="trailing" constant="13" id="yDf-dQ-RWp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wHD-Qs-RHd">
@@ -450,6 +484,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="hNf-gO-gen"/>
+                        <segue destination="pXU-Fi-Vrn" kind="push" identifier="goToFromNotification" id="AyT-vj-iZa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRu-ki-Ac6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -473,7 +508,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="ICF-OH-zzT"/>
         <segue reference="j5R-Z7-fWD"/>
-        <segue reference="ixF-Zl-4AF"/>
     </inferredMetricsTieBreakers>
 </document>

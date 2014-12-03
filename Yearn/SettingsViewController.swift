@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.emailAddressField.delegate = self
+        //self.emailAddressField.delegate = self
         // Do any additional setup after loading the view.
         
         // Hide keyboard when touching outside of emailAddressField
@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressedSaveButton(sender: UIBarButtonItem) {
         println("Pressed save button")
-        self.emailAddressField.resignFirstResponder()
+        emailAddressField.resignFirstResponder()
         println("This is your email address: \(self.emailAddressField.text)")
         
         
